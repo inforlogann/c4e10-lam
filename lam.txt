@@ -1,0 +1,9 @@
+n = int(input("nhap vao so dong ban thich: "))
+m = int(input("nhap vao so cot ban thich: "))
+for i in range (n):
+    for j in range (m):
+            if i%2==0:
+              print("x*",end="")
+            else:
+                print("*x" , end="")
+    print()
