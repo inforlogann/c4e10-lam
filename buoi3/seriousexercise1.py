@@ -4,7 +4,7 @@ while True:
     print("Items in shop: ")
     item_no=1
     for clothe in clothes:
-        print("{0}.{1}".format(item_no+1,clothe))
+        print("{0}.{1}".format(item_no,clothe))
         item_no+=1
     action =input("what's up?")
     action = action.upper()
@@ -12,15 +12,10 @@ while True:
         item = input("item to add?")
         clothes.append(item)
     elif action == "D":
-        itemd= input("item wants delete?")
+        itemd= int(input("item wants delete?"))
         clothes.remove(itemd)
     elif action == "E":
-        iteme = int(input("vi tri muon sua?"))
-        clothes.pop(iteme)
-        newitem= input("edit : ")
-        clothes.insert(iteme,newitem)
-    elif action == "U":
-         items = int(input("number: "))
-         location= int(input("location: "))
-         clothes.insert(location,clothes.pop(items))
-         
+        edit_index = int(input("position?"))-1
+        new_item= input("edit : ")
+        clothes[edit_index]=new_item
+             

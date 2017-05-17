@@ -6,9 +6,9 @@ for i in range(3):
         print("month: " ,i)
         print("now here is my fock: ",sheep)
         sheep.sort()
-        a = sheep[6]
+        a = sheep[len(sheep)]
         print("biggest sheep in your list: ", a)
-        sheep[6]= 8
+        sheep[len(sheep)]= 8
         print("after shearing",sheep)
         b= [50,50,50,50,50,50,50]
         sheep= [sum(x) for x in zip(sheep, b)]

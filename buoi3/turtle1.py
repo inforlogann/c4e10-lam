@@ -1,18 +1,12 @@
 from turtle import*
 shape("turtle")
 speed(-1)
-for i in range(6,2,-1):
-    if  i==6 :
-        color("yellow")
-    elif i==5:
-        color("blue")
-    elif i==4 :
-        color("red")
-    else:
-        color("green")
-    
-   
+colors=["red","blue","grey","orange","cyan"]
+color_index=0
+for i in range(17,2,-1):
+    color(colors[color_index%len(colors)])
+    color_index+=1
     for _ in range(i):
-          forward(100)
-          left(360/float(i))
+        forward(20)
+        left(360/float(i))
    
