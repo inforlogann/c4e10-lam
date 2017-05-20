@@ -1,8 +1,8 @@
 from turtle import *
 speed(-1)
-pensize(2)
+pensize(5)
 bgcolor("lightgreen")
-color("blue")
+color("pink")
 def draw_maze(n):
     a=0
     b=n
@@ -14,4 +14,5 @@ def draw_maze(n):
         a+=5
         lt(360/(b+100))
 draw_maze(52)
-input()
+
+
