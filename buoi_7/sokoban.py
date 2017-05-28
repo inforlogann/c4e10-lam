@@ -53,8 +53,8 @@ saved_boxes = [box.copy() for box in boxes]
 # day nhieu hop
 def reset_level(saved_pusher,saved_boxes):
     global pusher,boxes
-    pusher = saved_pusher
-    boxes = saved_boxes
+    pusher = saved_pusher.copy()
+    boxes = [box.copy() for box in saved_boxes]
     
 def is_in_map(x, y, size):
     return 0 <= x < size["x"] and 0 <= y < size["y"]
@@ -105,24 +105,30 @@ def input_process(direction):
         print("You enter wrong button pls do this again bro :)")
 
     return dx, dy
-
+undo =1
+undo_pusher =[]
+undo_boxes=[]
 # main GAME_LOOP
-while True:
+while undo != 0:
     print_map(size, pusher, boxes)
     command = input("What is your next move? W/A/S/D? \nEnter R to reset the Game \nEnter U to undo a step\n").upper()
     if command == "R":
         reset_level(saved_pusher,saved_boxes)
         
     elif command =="U":
-        
-        reset_level(undo_pusher,undo_boxes)
-    undo_pusher = pusher.copy()
-    undo_boxes  = [box.copy() for box in boxes]
-                   
-
-    
-
+        undo -=1
        
+        reset_level(undo_pusher[len(undo_pusher)-1],undo_boxes[len(undo_boxes)-1])
+        undo_pusher.pop()
+        undo_boxes.pop()
+    else:
+        undo +=1
+        undo_pusher.append(pusher.copy())
+        undo_boxes.append([box.copy() for box in boxes])
+        
+    
+    
+                
         
         
         
