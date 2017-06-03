@@ -43,8 +43,8 @@ class Rectangle():
         self.s =self.width*self.height
         return(self.s)
     def primater(self):
-        self.c=(self.width+self.height)*2
-        return (self.c)
+        self.cv=(self.width+self.height)*2
+        return (self.cv)
 
     def flip(self):
         [self.width, self.height] = [self.height, self.width]
@@ -58,9 +58,11 @@ class Rectangle():
 
 
 
+
+
 a= Point(2,1)
 b= Point(10,9)
-c= Point(5,-2)
+c= Point(6,-3)
 h_x,h_y = a.halfway(b)
 dist  = a.distant(b)
 reflect_x,reflect_y,reflect_origin=a.reflect()
@@ -72,19 +74,17 @@ print("reflect_x={0},redlect_y={1},reflect_origin={2}".format(reflect_x,reflect_
 
 
 
-
-
-
 result = Rectangle(a,b,c)
 s=result.area()
 print("dien tich hinh chu nhat la: ",s)
 
-c=result.primater()
-print("chu vi hinh chu nhat la: ",c)
+cv=result.primater()
+print("chu vi hinh chu nhat la: ",cv)
 
 result.flip()
 
-
-d_x,d_y=result.find_d(a,b,c)
+d_x, d_y = result.find_d ( a, b, c )
+d=Point(d_x,d_y)
 print("toa do diem d la x={0},y={1}".format(d_x,d_y))
 
+e=Point(5,4)
