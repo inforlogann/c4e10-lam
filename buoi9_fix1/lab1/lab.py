@@ -21,6 +21,7 @@ class Point:
         return (self.reflect_x,self.reflect_y,self.reflect_origin)
 
     def get_line_to(self,b):
+
         # phương trình đường thẳng qua 2 điểm
         # (y2-y1)(x-x1) +(-x2+x1)(y-y1)=0 khi a2+b2 !=0
         self.p=b.y-self.y
@@ -32,7 +33,11 @@ class Point:
         if self.p**2 +self.q**2 !=0:
             return(self.p,self.q,self.l)
 # trả về hệ số của phương trình đường thẳng
-
+    def distance(self,a,b):
+        # tinh khoang cách từ 1 điểm bất kì đến các đường thẳng của hcn
+        self.m, self.n, self.p = a.get_line_to ( b )
+        self.d = abs ( self.m * self.x + self.n * self.y + self.p ) / ((self.m ** 2 + self.n ** 2) ** (1 / 2))
+        return self.d
 
 class Rectangle():
     def __init__(self,a,b,c):
@@ -55,8 +60,11 @@ class Rectangle():
        self.d_x = b.x + c.x - a.x
        self.d_y = b.y + c.y - a.y
        return (self.d_x,self.d_y)
-
-
+    def compare(self,a,b,c,d,e):
+        if ((e.distance(a, b) + e.distance(c ,d )) == a.distant( c ) and (e.distance( a, c ) + e.distance( b, d )) == a.distant( b )):
+            return True
+        else:
+            return False
 
 
 
@@ -88,3 +96,8 @@ d=Point(d_x,d_y)
 print("toa do diem d la x={0},y={1}".format(d_x,d_y))
 
 e=Point(5,4)
+
+if result.compare(a,b,c,d,e):
+        print("E=({0},{1}) in ABCD".format(e.x,e.y))
+else:
+        print("E=({0},{1}) not in ABCD ".format(e.x,e.y))
