@@ -33,9 +33,7 @@ class Game:
         for i in range(self.map.width):
             for j in range(self.map.height):
                 screen.blit(ground_image,(i * pixel, j * pixel))
-        # screen.blit(pusher_image,(self.pusher.x*pixel,self.pusher.y*pixel))
-        # screen.blit(box_image,(self.box.x*pixel,self.box.y*pixel))
-        # screen.blit(dest_image,(self.dest.x*pixel,self.dest.y*pixel))
+
         self.draw_image_center(self.pusher,screen)
         self.draw_image_center(self.box,screen)
         self.draw_image_center(self.dest,screen)
