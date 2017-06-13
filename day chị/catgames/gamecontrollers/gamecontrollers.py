@@ -20,7 +20,6 @@ class GameController:
         dy = 0
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
-                print ( 11 )
                 dy -= 1
             elif event.key == pygame.K_DOWN:
                 dy += 1
@@ -30,6 +29,4 @@ class GameController:
                 dx -= 1
             elif event.key == pygame.K_ESCAPE:
                 quit ()
-        print ( dx, dy )
         self.move ( dx * 10, dy * 10 )
-        print ( self.gamemodel.x, self.gamemodel.y )
